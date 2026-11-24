@@ -162,8 +162,8 @@
     $("name").textContent = C.name;
     $("bio").textContent = C.bio;
     if (C.name) document.title = C.name + " — روابط المنتجات";
-    var av = $("avatar"), img = safeUrl(C.avatar);
-    if (img) av.innerHTML = '<img src="' + esc(img) + '" alt="">';
+    var av = $("avatar"), img = safeUrl(C.avatar) || (/^[\w\-./]+\.(jpe?g|png|webp|gif|avif|svg)$/i.test(C.avatar || "") && String(C.avatar).indexOf("..") < 0 ? C.avatar : "");
+    if (img) av.innerHTML = '<img src="' + esc(img) + '" alt="' + esc(C.name) + '" width="136" height="136" fetchpriority="high">';
     else av.textContent = (C.name || "🛍").trim().charAt(0);
     $("socials").innerHTML = Object.keys(ICONS).map(function (k) {
       var u = safeUrl(C[k]);

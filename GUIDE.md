@@ -1,4 +1,4 @@
-# Your Product Hub: Setup & Daily Use Guide
+# ABDUH DEALS: Setup & Daily Use Guide
 
 A free website for your TikTok bio. Visitors type the **product number** from your video and land straight on the product with a buy button.
 
@@ -26,15 +26,16 @@ A free website for your TikTok bio. Visitors type the **product number** from yo
 2. Click **+** (top right) → **New repository**.
    - Repository name: `YOUR-USERNAME.github.io` (exactly your username + `.github.io`)
    - Select **Public** → **Create repository**.
-3. On the new repository page click **"uploading an existing file"**. Drag in **all files from this folder** (`index.html`, `style.css`, `app.js`, `config.js`, `products.csv`, the `images` folder) → **Commit changes**.
+3. On the new repository page click **"uploading an existing file"**. Drag in **all files from this folder** (`index.html`, `style.css`, `app.js`, `config.js`, `products.csv`, the `images` folder with your logo) → **Commit changes**.
 4. Open `config.js` in the repository → click the ✏️ pencil icon → change:
    - `name`, `bio`: your page name and the line under it
    - `sheetCsvUrl`: paste the link from Step 2 between the quotes
    - `tiktok`, `telegram`: your profile links
-   - (optional) `avatar`: link to your profile picture (or upload `images/me.jpg` and write `"images/me.jpg"`)
+   - `avatar` is already set to your logo (`images/logo.webp`)
    - Click **Commit changes**.
 5. Go to **Settings → Pages**. Under "Build and deployment", Source = **Deploy from a branch**, Branch = **main** / **(root)** → **Save**.
 6. Wait 1–2 minutes, then open **https://YOUR-USERNAME.github.io** 🎉
+7. (Recommended) Open `index.html` → ✏️ → find `og:image` and change `images/logo-512.jpg` to the full address `https://YOUR-USERNAME.github.io/images/logo-512.jpg`. Your logo then appears when the link is shared on WhatsApp, Telegram and X.
 
 ### Step 4: Put it in your TikTok bio
 TikTok → **Edit profile → Website** → paste your site address.
@@ -113,10 +114,15 @@ Buy a domain (e.g. from Namecheap or Cloudflare, ~40–60 SAR/year) → GitHub *
 | Image doesn't show | The image link must open the picture directly in a new tab. Otherwise use `images/…`. |
 | Site shows 404 | Check that the repository name is exactly `YOUR-USERNAME.github.io` and Pages is enabled (Step 3.5). |
 
+## Brand & fonts
+- Colours come from your identity sheet: orange `#FB6002`, amber `#FD9F0B`, fire red `#F13000`, black `#09090B`, white. The orange gradient is used only on buy buttons and badges, as the sheet specifies.
+- The site follows the visitor's phone setting: **white** in light mode, **black** in dark mode (both approved logo backgrounds).
+- **Font:** the site uses **IBM Plex Sans Arabic** (free, open license, loaded from Google Fonts). **Thmanyah Sans is not uploaded to the site**, because its license forbids hosting the font files on a website or making them downloadable, which a public site would do. Keep using Thmanyah in your logo, TikTok videos and designs; that's allowed. If you ever want Thmanyah on the site, ask Thmanyah for web-embedding permission at ask@thmanyah.com.
+
 ## Files in this folder
 | file | edit it? |
 |---|---|
 | `config.js` | ✅ once at setup (name, links, sheet link) |
 | `products.csv` | template to import into Google Sheets; also used as a backup if the sheet can't be reached |
-| `images/` | ✅ upload your product photos here (optional) |
+| `images/` | your logo + favicons are here; ✅ upload product photos here too (optional) |
 | `index.html`, `style.css`, `app.js` | ❌ no need to touch |

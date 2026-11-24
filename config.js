@@ -6,13 +6,13 @@
 window.SITE_CONFIG = {
 
   // Your name / brand shown at the top of the page
-  name: "عروضي 🔥",
+  name: "ABDUH DEALS",
 
   // Short line under your name
-  bio: "أفضل عروض أمازون السعودية وعلي إكسبريس 🔥 اكتب رقم المنتج اللي شفته في الفيديو",
+  bio: "عروض حصرية تصلك أول بأول 🔥 اكتب رقم المنتج اللي شفته في الفيديو",
 
   // Link to your profile picture (leave "" to show the first letter of your name)
-  avatar: "",
+  avatar: "images/logo.webp",
 
   // 📊 Google Sheet link (File → Share → Publish to web → choose sheet → CSV → Publish → copy link)
   // Leave "" to use the products.csv file in this folder instead.
@@ -40,5 +40,5 @@ window.SITE_CONFIG = {
   newBadgeDays: 3,
 
   // Accent colour of the site (any CSS colour)
-  accent: "#ff3b5c"
+  accent: "#FB6002"
 };

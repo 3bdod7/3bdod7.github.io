@@ -1,4 +1,4 @@
-# Product Hub: a free Linktree alternative for affiliate products
+# ABDUH DEALS: product hub (free Linktree alternative)
 
 A mobile-first Arabic (RTL) product page for a TikTok bio. Products come from a Google Sheet, so there's no code to edit after setup.
 
