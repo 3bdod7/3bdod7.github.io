@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>عروضي — روابط المنتجات</title>
+  <meta name="description" content="كل المنتجات والعروض اللي أنشرها في تيك توك — أمازون السعودية وعلي إكسبريس">
+  <meta property="og:title" content="عروضي — روابط المنتجات">
+  <meta property="og:description" content="اكتب رقم المنتج اللي شفته في الفيديو واطلبه مباشرة">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#0f0f14">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛍️</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="profile">
+    <div class="avatar" id="avatar"></div>
+    <h1 id="name"></h1>
+    <p class="bio" id="bio"></p>
+    <nav class="socials" id="socials" aria-label="حساباتي"></nav>
+  </header>
+
+  <div class="sticky">
+    <label class="search">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="اكتب رقم المنتج من الفيديو أو اسمه…" autocomplete="off" enterkeyhint="search">
+    </label>
+    <div class="chips" id="chips" role="tablist"></div>
+  </div>
+
+  <a class="tg-banner" id="tgBanner" target="_blank" rel="noopener" hidden>
+    <span>📢 عروض يومية أسرع على قناتي في تيليجرام</span><b>انضم</b>
+  </a>
+
+  <div class="notice" id="notice" hidden></div>
+
+  <main class="grid" id="grid" aria-live="polite">
+    <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>
+  </main>
+
+  <p class="empty" id="empty" hidden>ما لقينا المنتج 🤔 تأكد من الرقم أو جرّب اسم ثاني.</p>
+
+  <footer>
+    <p>قد أحصل على عمولة من المشتريات المؤهلة عبر هذه الروابط، بدون أي تكلفة إضافية عليك. 🙏</p>
+    <p class="en">As an Amazon Associate I earn from qualifying purchases. Prices may change — check the final price on the store.</p>
+  </footer>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
