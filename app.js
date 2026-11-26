@@ -137,7 +137,7 @@
       p.isNew = p.added != null && newMs > 0 && now - p.added < newMs && p.added <= now + 864e5;
       var pn = num(p.price), on = num(p.old);
       p.off = pn != null && on != null && on > pn ? Math.round((1 - pn / on) * 100) : 0;
-      p.search = norm([p.code, p.title, p.category, p.badge, STORE[p.store].name].join(" "));
+      p.search = norm([p.code, p.title, p.badge, STORE[p.store].name].join(" "));
       return p;
     }).filter(function (p) { return p.active && p.link && (p.title || p.code); })
       .sort(function (a, b) {              // newest first: by date, then by row (lower rows = newer)
@@ -174,18 +174,11 @@
   }
 
   function renderChips() {
-    var all = state.all, chips = [{ id: "all", label: "الكل" }];
-    if (all.some(function (p) { return p.featured; })) chips.push({ id: "hot", label: "🔥 المميزة" });
-    if (all.some(function (p) { return p.isNew; })) chips.push({ id: "new", label: "🆕 جديد" });
-    if (all.some(function (p) { return p.off >= 30; })) chips.push({ id: "deal", label: "💸 خصم +30%" });
-    var stores = {};
-    all.forEach(function (p) { stores[p.store] = 1; });
-    if (Object.keys(stores).length > 1) Object.keys(stores).forEach(function (s) {
-      chips.push({ id: "store:" + s, label: STORE[s].name });
+    // Store filters only: الكل + أمازون + علي إكسبريس (other stores appear only if used)
+    var chips = [{ id: "all", label: "الكل" }, { id: "store:amazon", label: STORE.amazon.name }, { id: "store:aliexpress", label: STORE.aliexpress.name }];
+    state.all.forEach(function (p) {
+      if (!chips.some(function (c) { return c.id === "store:" + p.store; })) chips.push({ id: "store:" + p.store, label: STORE[p.store].name });
     });
-    var cats = [];
-    all.forEach(function (p) { if (p.category && cats.indexOf(p.category) < 0) cats.push(p.category); });
-    cats.forEach(function (c) { chips.push({ id: "cat:" + c, label: c }); });
     if (!chips.some(function (c) { return c.id === state.filter; })) state.filter = "all";
     $("chips").innerHTML = chips.map(function (c) {
       return '<button class="chip" role="tab" data-f="' + esc(c.id) + '" aria-selected="' + (c.id === state.filter) + '">' + esc(c.label) + "</button>";
@@ -215,12 +208,11 @@
         '<span class="ph">🛍️</span>' +
         (p.image ? '<img src="' + esc(p.image) + '" alt="' + esc(p.title) + '" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.remove()">' : "") +
         (p.code ? '<span class="code">#' + esc(p.code) + "</span>" : "") +
-        (p.off ? '<span class="off">-' + p.off + "%</span>" : "") + tag +
+        tag +
       "</a>" +
       '<div class="body">' +
         '<span class="store ' + p.store + '"><i></i>' + s.name + "</span>" +
         '<h2 class="title">' + esc(p.title) + "</h2>" +
-        (p.price ? '<div class="price"><b>' + fmtPrice(p.price, p.currency) + "</b>" + (p.old ? "<s>" + fmtPrice(p.old, p.currency) + "</s>" : "") + "</div>" : "") +
         '<div class="actions">' +
           '<a class="buy ' + p.store + '" href="' + esc(p.link) + '" target="_blank" rel="sponsored noopener" data-buy="' + p.idx + '"><span class="short">اطلب الآن 🛒</span><span class="long">' + s.buy + "</span></a>" +
           '<button class="share" data-share="' + p.idx + '" aria-label="مشاركة"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg></button>' +
@@ -292,7 +284,7 @@
       var sh = e.target.closest("[data-share]");
       if (sh) {
         var pr = byIdx(sh.getAttribute("data-share")); if (!pr) return;
-        var url = productUrl(pr), text = pr.title + (pr.price ? " — " + pr.price + " " + pr.currency : "");
+        var url = productUrl(pr), text = pr.title;
         track("share/" + (pr.code || pr.idx));
         if (navigator.share) navigator.share({ title: pr.title, text: text, url: url }).catch(function () {});
         else if (navigator.clipboard) navigator.clipboard.writeText(text + "\n" + url).then(function () { toast("تم نسخ الرابط ✅"); }, function () { prompt("انسخ الرابط:", url); });

@@ -19,11 +19,11 @@ window.SITE_CONFIG = {
   sheetCsvUrl: "",
 
   // Social buttons (leave "" to hide a button)
-  tiktok: "https://www.tiktok.com/@your_username",
-  telegram: "https://t.me/your_channel",
+  tiktok: "https://www.tiktok.com/@n__cd",
+  telegram: "https://t.me/AliDealsCenter",
   instagram: "",
   snapchat: "",
-  x: "",
+  x: "https://x.com/AbduhDeals",
   whatsapp: "",   // e.g. "https://wa.me/9665XXXXXXXX" or a WhatsApp channel link
 
   // Default currency text when the sheet's "currency" column is empty

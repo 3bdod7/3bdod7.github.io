@@ -58,20 +58,15 @@ In **Amazon Associates (affiliate-program.amazon.sa) → Account Settings → Ed
 | `code` | the product number you say in the video | `12` |
 | `title` | short product name | `سماعات لاسلكية بعزل ضوضاء` |
 | `image` | image link (see tips below) | `https://…jpg` or `images/12.jpg` |
-| `price` | current price (optional) | `149` |
-| `old_price` | price before discount (optional, shows the -% badge) | `299` |
-| `currency` | leave empty for ر.س | |
 | `store` | `amazon` or `aliexpress` (auto-detected from the link if empty) | `amazon` |
-| `category` | becomes a filter button | `إلكترونيات` |
 | `link` | **your affiliate link** | `https://amzn.to/xxxx` |
 | `badge` | optional yellow label | `عرض محدود` |
-| `featured` | `yes` to show under 🔥 المميزة | `yes` |
 | `active` | `no` to hide a product (expired deal) without deleting it | `yes` |
 | `added` | date as `YYYY-MM-DD`; newest shows first and gets a "جديد" badge | `2026-11-24` |
 
 3. That's it. The site updates within a few minutes.
 
-Arabic column names also work (رقم، الاسم، الصورة، السعر، السعر القديم، المتجر، القسم، الرابط، شارة، مميز، ظاهر، التاريخ).
+Arabic column names also work (رقم، الاسم، الصورة، المتجر، الرابط، شارة، ظاهر، التاريخ). Prices aren't shown on the site, so there's no need to keep them updated.
 
 ### In your TikTok video / caption
 > "الرابط في البايو 👆 — اكتب رقم **12**"
@@ -85,7 +80,6 @@ Visitors tap your bio link, type `12`, and see only that product with a big buy 
 ## Tips to get more clicks & commissions
 - **Number every product in the video** (big text on screen: "#12"). This is the key to fast finding.
 - Keep **`added`** dates filled in so the newest product is always at the top (most visitors come from your latest video).
-- Mark your best deals as `featured = yes` and add `old_price` so the red **-%** discount badge shows.
 - Hide expired deals with `active = no` instead of deleting them, so you can reuse them later.
 - Use your **Telegram post links** as `https://YOUR-SITE/?p=12`. The Telegram banner on the site also brings viewers back to your channel.
 
@@ -93,9 +87,6 @@ Visitors tap your bio link, type `12`, and see only that product with a big buy 
 - **Best:** your own photo or a screenshot from your TikTok video. Upload it to the repository's `images` folder (GitHub → open `images` → **Add file → Upload files**) and write `images/12.jpg` in the sheet.
 - AliExpress image links (`ae01.alicdn.com/…jpg`) usually work fine: right-click the product image → **Copy image address**.
 - ⚠️ Amazon's affiliate rules restrict copying product images from Amazon's site. Using your own photos is the safe option.
-
-## ⚠️ About showing Amazon prices
-Amazon's affiliate rules say prices shown outside Amazon must be accurate and up to date. Prices change often, so either keep the `price` column updated or **leave it empty for Amazon products** (the card then shows just the name and buy button). The footer already includes the required disclosure: *"As an Amazon Associate I earn from qualifying purchases."*
 
 ## Free click statistics (optional)
 1. Sign up free at **goatcounter.com** and choose a code, e.g. `abukhaled`.
